@@ -18,8 +18,9 @@ Route::get('/', [ProductController::class,'index']);
 Route::get('/product/create', [ProductController::class,'create']);
 Route::post('/product/store', [ProductController::class,'store']);
 Route::get('/products/{id}/edit', [ProductController::class,'edit']);
+Route::put('/products/{id}/update', [ProductController::class,'update']);
 
 Route::get('/products/{id}/delete', [ProductController::class,'delete']);//
 //Route::get('/product/{{$product->id}}/edit', function (){
    // echo "work";
-//});
+//});products/{{ $product-> id }}/edit

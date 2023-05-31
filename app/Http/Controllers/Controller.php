@@ -39,8 +39,9 @@ class Controller extends BaseController
 
     public function edit($id){
 
-       //dd($id);
-       echo("Working in edit");
+      $product = Product::where('id',$id)->first();
+
+      return view('product.edit',['product' => $product]);
 
     }
     public function delete($id){
@@ -50,6 +51,19 @@ class Controller extends BaseController
         $product->delete();
         return back();
  
+     }
+
+     public function update(Request $request ,$id){
+
+        $product = Product::where('id',$id)->first();
+        $product->name= $request->name;
+        $product->description= $request->description;
+        $product->image= $request->image;
+        
+
+        $product->save();
+        return redirect('/');
+       
      }
  
 
